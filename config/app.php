@@ -162,6 +162,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Freshwork\ChileanBundle\Laravel\ChileanBundleServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -229,6 +230,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Rut'   => Freshwork\ChileanBundle\Laravel\Facades\Rut::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 

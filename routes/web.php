@@ -20,6 +20,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+//CARGA MASVIA ASIGNATURA FALTA PONERLO EN VISTA DE DOCENTE
+Route::get('import-asignatura',[App\Http\Controllers\AsignaturaController::class,'importForm']);
+
+Route::post('import',[App\Http\Controllers\AsignaturaController::class,'import'])->name('asignatura.import');
+
+Route::get('import-asignatura',[App\Http\Controllers\AsignaturaController::class, 'desplegarAsignaturas']);
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

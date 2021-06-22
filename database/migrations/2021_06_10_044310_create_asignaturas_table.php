@@ -15,11 +15,11 @@ class CreateAsignaturasTable extends Migration
     {
         Schema::create('asignaturas', function (Blueprint $table) {
             $table->id();
-            $table->integer('nrc');
-            $table->integer('codigo_asignatura');
-            $table->string('rut_profesor');
-            $table->string('nombre_profesor');
-            $table->boolean('estado');
+            $table->integer('nrc')->unique();
+            $table->integer('codigo_asignatura')->unique();
+            $table->string('rut_profesor')->nullable();;
+            $table->string('nombre_profesor')->nullable();;
+            $table->boolean('estado')->default(1);
             $table->timestamps();
         });
     }

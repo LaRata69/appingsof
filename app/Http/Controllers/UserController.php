@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Asignatura;
 use Illuminate\Http\Request;
-use App\Imports\AsignaturaImport;
-use Excel;
-class AsignaturaController extends Controller
+use App\Imports\UserImport;
+use App\Models\User;
+use Maatwebsite\Excel\Facades\Excel;
+use Config\App;
+
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,10 +44,10 @@ class AsignaturaController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Asignatura  $asignatura
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Asignatura $asignatura)
+    public function show($id)
     {
         //
     }
@@ -53,10 +55,10 @@ class AsignaturaController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Asignatura  $asignatura
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Asignatura $asignatura)
+    public function edit($id)
     {
         //
     }
@@ -65,10 +67,10 @@ class AsignaturaController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Asignatura  $asignatura
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Asignatura $asignatura)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -76,30 +78,22 @@ class AsignaturaController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Asignatura  $asignatura
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Asignatura $asignatura)
+    public function destroy($id)
     {
         //
     }
 
     public function importForm()
     {
-        return view('import-asignatura');
+        return view('import-form');
     }
 
     public function import(Request $request)
     {
-        Excel::import(new AsignaturaImport,$request->file);// no importa que marque esto como error, aun asi se ejecuta bien
-        //return view('import-asignatura');
-        $datos= Asignatura::all();
-        return view('import-asignatura', ['asignaturas'=>$datos]);
-    }
-
-    function desplegarAsignaturas()
-    {
-        $datos= Asignatura::all();
-        return view('import-asignatura', ['asignaturas'=>$datos]);
+        Excel::import(new UserImport,$request->file);
+        return "Registros guardados correctamente";
     }
 }
