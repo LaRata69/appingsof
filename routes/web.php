@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AlumnoController;
+use App\Http\Controllers\ProfesorController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,11 +25,11 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+Route::middleware(['auth'])->group(function() {
 
-Auth::routes();
+    //Rutas para ser accedidas por usuarios REGISTRADOS
+    Route::get('/administrador', [AdminController::class, 'index'])->name('admin_index');
+    Route::get('/alumno', [AlumnoController::class, 'index'])->name('alumno_index');
+    Route::get('/docente', [ProfesorController::class, 'index'])->name('docente_index');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
