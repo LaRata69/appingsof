@@ -48,6 +48,7 @@
                 <td>Código de la asignatura</td>
                 <td>Rut del profesor</td>
                 <td>Nombre del profesor</td>
+                <td>Periodo Academico</td>
 
             <tr>
 
@@ -58,6 +59,7 @@
                 <td>{{$asignatura['codigo_asignatura']}}</td>
                 <td>{{$asignatura['rut_profesor']}}</td>
                 <td>{{$asignatura['nombre_profesor']}}</td>
+                <td>{{$asignatura['periodo_academico']}}</td>
 
             @endforeach
 

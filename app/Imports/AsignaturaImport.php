@@ -16,10 +16,13 @@ class AsignaturaImport implements ToModel,WithHeadingRow
     public function model(array $row)
     {
         return new Asignatura([
+
             'nrc' => $row['nrc'],
             'codigo_asignatura' => $row['codigo_asignatura'],
             'rut_profesor' => $row['rut_profesor'],
             'nombre_profesor' => $row['nombre_profesor'],
+            'periodo_academico' => $row['periodo_academico'],
         ]);
+
     }
 }

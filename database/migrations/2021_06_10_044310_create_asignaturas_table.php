@@ -20,6 +20,8 @@ class CreateAsignaturasTable extends Migration
             $table->string('rut_profesor')->nullable();;
             $table->string('nombre_profesor')->nullable();;
             $table->boolean('estado')->default(1);
+            $table->integer('periodo_academico')->nullable();
+
             $table->timestamps();
         });
     }

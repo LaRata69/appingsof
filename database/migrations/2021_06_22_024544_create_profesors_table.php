@@ -15,11 +15,13 @@ class CreateProfesorsTable extends Migration
     {
         Schema::create('profesors', function (Blueprint $table) {
             $table->id();
-            $table->string('rut_profesor'); 
+            $table->string('rut_profesor')->unique(); 
             $table->string('nombre_profesor');
-            $table->string('correo');
-            $table->boolean('es_encargado');
-            $table->boolean('estado');
+            $table->string('correo')->unique();
+            $table->boolean('es_encargado')->default(0);
+            $table->boolean('estado')->default(1);
+            $table->string('password');
+
             $table->timestamps();
         });
     }

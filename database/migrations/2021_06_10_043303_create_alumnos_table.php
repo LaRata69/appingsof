@@ -15,11 +15,12 @@ class CreateAlumnosTable extends Migration
     {
         Schema::create('alumnos', function (Blueprint $table) {
             $table->id();
-            $table->string('rut_alumno');
-            $table->string('correo');
+            $table->string('rut_alumno')->unique();
+            $table->string('correo')->unique();
             $table->string('nombre');
-            $table->boolean('estado');
-            $table->boolean('es_ayudante');
+            $table->boolean('estado')->default(1);
+            $table->boolean('es_ayudante')->default(0);
+            $table->string('password');
             $table->timestamps();
         });
     }

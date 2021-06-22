@@ -15,5 +15,6 @@ class Asignatura extends Model
         'rut_profesor',
         'nombre_profesor',
         'estado',
+        'periodo_academico',
     ];
 }
